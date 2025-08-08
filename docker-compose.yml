@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./web-interface
+    container_name: web-interface
+    ports:
+      - "3000:3000"
+    environment:
+      - CLI_SERVER_HOST=cli-server:5000
+      - WEB_HOST=0.0.0.0
+      - WEB_PORT=3000
+    depends_on:
+      - cli-server
+    networks:
+      - hpta-network
+
+  cli-server:
+    build: .
+    container_name: cli-server
+    ports:
+      - "5000:5000"
+    networks:
+      - hpta-network
+
+networks:
+  hpta-network:
+    driver: bridge

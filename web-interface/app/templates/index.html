@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>HPTA Web Interface</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 16px;
+      background: #111;
+      color: #eee;
+    }
+    input, button, textarea {
+      font-size: 14px;
+      padding: 8px;
+      margin: 6px 0;
+      width: 100%;
+    }
+    .row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .col {
+      flex: 1;
+    }
+    .small {
+      width: 120px;
+      text-align: center;
+      font-weight: bold;
+    }
+    pre {
+      background: #222;
+      padding: 8px;
+      border-radius: 6px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    .card {
+      background: #141414;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    button {
+      cursor: pointer;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+    }
+    button:hover {
+      background: #444;
+    }
+  </style>
+</head>
+<body>
+  <h2>HPTA — Web Interface</h2>
+
+  <!-- Gemini API Keys Section -->
+  <div class="card">
+    <h3>Gemini API Keys (enter up to 5)</h3>
+    <div id="keys-list">
+      <!-- 5 inputs with status -->
+      <div class="row">
+        <input id="key-input-0" placeholder="API Key 1">
+        <div class="small" id="key-status-0">empty</div>
+      </div>
+      <div class="row">
+        <input id="key-input-1" placeholder="API Key 2">
+        <div class="small" id="key-status-1">empty</div>
+      </div>
+      <div class="row">
+        <input id="key-input-2" placeholder="API Key 3">
+        <div class="small" id="key-status-2">empty</div>
+      </div>
+      <div class="row">
+        <input id="key-input-3" placeholder="API Key 4">
+        <div class="small" id="key-status-3">empty</div>
+      </div>
+      <div class="row">
+        <input id="key-input-4" placeholder="API Key 5">
+        <div class="small" id="key-status-4">empty</div>
+      </div>
+      <button id="init-keys-btn">Validate Keys</button>
+      <div id="keys-status">no check yet</div>
+    </div>
+  </div>
+
+  <!-- Natural Task Section -->
+  <div class="card">
+    <h3>Natural Task → CLI (uses API keys)</h3>
+    <input id="task-input" placeholder='Example: "scan example.com for open ports"'>
+    <button id="process-task-btn">Run Task</button>
+    <pre id="task-output">Result will appear here</pre>
+  </div>
+
+  <!-- Direct Command Section -->
+  <div class="card">
+    <h3>Direct Docker Command (bypass API keys)</h3>
+    <input id="direct-command" placeholder='Example: "nmap -v example.com"'>
+    <button id="direct-run-btn">Run Direct Command</button>
+    <pre id="direct-output">Direct output appears here</pre>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
