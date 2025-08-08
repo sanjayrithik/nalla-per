@@ -8,6 +8,7 @@ docker-compose up
 //The command that starts your application
 
 OPTIONAL
+
 docker-compose build --no-cache web   
 //Rebuilds only the web service from your docker-compose.yml
 
